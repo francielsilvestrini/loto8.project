@@ -1,0 +1,7 @@
+
+.vscode/settings.json
+migrations
+loto8project.code-workspace
+venv
+*.pyc
+*.sqlite3
