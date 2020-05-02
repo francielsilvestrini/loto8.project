@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>resultados</h1>
+    <ul>
+        {% for resultado in resultados %}
+        <li>{{ resultado.concurso }} | {{ resultado.bolas }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

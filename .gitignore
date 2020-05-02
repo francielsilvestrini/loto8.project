@@ -5,3 +5,4 @@ loto8project.code-workspace
 venv
 *.pyc
 *.sqlite3
+.vscode/launch.json
