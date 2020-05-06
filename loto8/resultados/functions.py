@@ -19,6 +19,8 @@ def converter_para_json(file):
                 data[headers[k]] = cell.find(text=True)
             records += [data]
 
+    logging.getLogger("debug").debug('converter_para_json '+len(records))
+
     # with open('result.json', 'w') as fp:
     #	json.dump(records, fp)
     return json.dumps(records)

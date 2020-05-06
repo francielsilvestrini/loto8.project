@@ -51,4 +51,4 @@ class Resultado(models.Model):
         return b
 
     def __str__(self):
-        return str(self.concurso) + '[%s]'.format(','.join(self.bolas()))
+        return str(self.concurso) + "[%s]".format(','.join(self.bolas()))

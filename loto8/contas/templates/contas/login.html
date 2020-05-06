@@ -1,13 +1,45 @@
-{% extends 'base_layout.html' %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_style %}
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+<!-- Custom styles for this template -->
+<link href="{% static 'css/signin.css' %}" rel="stylesheet">
+{% endblock %}
+
 
 {% block content %}
-    <h1>Login</h1>
-    <form action="{% url 'contas:login' %}" method="post" class="site-form">
-        {% csrf_token %}
-        {{ form }}
-        {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-        {% endif %}
-        <input type="submit" value="Login">
-    </form>
+<form class="form-signin" action="{% url 'contas:login' %}" method="post">
+    {% csrf_token %}
+    <img class="mb-4" src="{% static 'img/brand/bootstrap-solid.svg' %}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">FAZER LOGIN</h1>
+    <label for="username" class="sr-only">Usuário</label>
+    {{ form.username }}
+    <label for="password" class="sr-only">Senha</label>
+    {{ form.password}}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">ENTRAR</button>
+    <div class="checkbox mb-3">
+        <a href="{% url 'contas:signup' %}">Criar nova conta</a>
+    </div>    
+    <p class="mt-5 mb-3 text-muted">&copy; 2020 Onnix Sistemas</p>
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+</form>
+
 {% endblock %}
