@@ -1,7 +1,16 @@
 from django.db import models
+from django.db.models import Max
+
+
+class ResultadoManager(models.Manager):
+
+    def ultimo_concurso(self):
+        max = self.all().aggregate(Max('concurso'))
+        return max['concurso__max'] or 0
 
 
 class Resultado(models.Model):
+
     concurso = models.IntegerField(unique=True)
     bola_01 = models.IntegerField()
     bola_02 = models.IntegerField()
@@ -30,6 +39,8 @@ class Resultado(models.Model):
     valor_rateio_13_numeros = models.FloatField()
     valor_rateio_12_numeros = models.FloatField()
     valor_rateio_11_numeros = models.FloatField()
+
+    objects = ResultadoManager()
 
     def bolas(self):
         b = []

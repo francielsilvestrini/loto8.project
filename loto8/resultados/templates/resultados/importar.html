@@ -1,10 +1,64 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}Resultados · {% endblock %}
+
+{% block head_style %}
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
+    input.nav-link {
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+    }
+</style>
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}
+
+{% block navbar %}
+{% include 'resultados/navbar.html' %}
+{% endblock %}
 
 {% block content %}
-    <h1>importar</h1>
-    <form action="{% url 'resultados:importar' %}" method="post" class="site-form" enctype="multipart/form-data">
+<h1>importar</h1>
+<div class="container">
+    <div class="row">
+    <form class="form-inline" action="{% url 'resultados:importar' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Salvar">
+
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="id_file" name="file"
+                    aria-describedby="inputGroupFileAddon04">
+                <label class="custom-file-label" for="id_file">Selecionar um arquivo</label>
+            </div>
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" id="inputGroupFileAddon04">Enviar</button>
+        </div>
     </form>
+    <div>
+        <a href="http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotfac.zip">Download</a>
+    </div>
+</div>
+</div>
+
 {% endblock %}

@@ -1,0 +1,30 @@
+RESULTADOS
+==========
+
+[x] Importar arquivo da loteria
+[] Exibir tabela dos RESULTADOS
+
+
+ESTATISTICAS
+============
+[] Exibir dashboard com as estatisticas
+- total de jogos 
+- premeados
+- meus jogos
+- meus premios
+- Rank dos numeros
+- Organização dos potes
+
+
+APOSTAS
+=======
+[] configuração da distribuicao dos potes
+[] configuração dos numeros da sorte
+[] configuração da quantidade de jogos por concurso
+[] modalidade: estatistica, randomico, desdobramento
+
+nova aposta > selecionar a configuração > listar os cartões > selecionar o concurso > salvar >
+exbir aposta gerada > imprimir cartões 
+
+[] conferir aposta
+

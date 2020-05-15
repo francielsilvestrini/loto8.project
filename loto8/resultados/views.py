@@ -4,7 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Resultado
 from .forms import UploadFileForm
-from .functions import converter_para_json, carregar_concursos
+from .functions import converter_para_json, carregar_concursos, atualizar_novos_resultados
+
+
+@login_required
+def dashboard(request):
+    context = {}
+    template_name = 'resultados/dashboard.html'
+    return render(request, template_name, context)
 
 
 @login_required()
@@ -13,11 +20,23 @@ def importar_resultados(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             try:
+                #converte o arquivo do padrão da loteria .htm para json
                 json_data = converter_para_json(request.FILES['file'])
-                carregar_concursos(json_data)
+                
+                # converte o json em um dicionario pythonico
+                concursos = carregar_concursos(json_data)
+                
                 # salvar no banco
+                atualizacoes_realizadas = atualizar_novos_resultados(concursos)
 
-                messages.success(request, 'Arquivo importado com sucesso!')
+                mensagem = {
+                    0: 'Nenhum resultado novo foi adicionado', 
+                    1: 'Um resultado novo foi adicionado',
+                }
+                if atualizacoes_realizadas not in mensagem:
+                    mensagem[atualizacoes_realizadas] = '{0} resultados novos foram adicionado'.format(atualizacoes_realizadas)
+                messages.success(request, mensagem[atualizacoes_realizadas])
+                
                 return redirect('resultados:listar')
             except Exception as e:
                 logging.getLogger("error_logger").error("Unable to upload file. " + repr(e))
