@@ -1,8 +1,29 @@
 RESULTADOS
 ==========
 
+# plataforma
 [x] Importar arquivo da loteria
-[] Exibir tabela dos RESULTADOS
+
+# apostadores
+[] consultar RESULTADOS (paginação)
+- localizar concurso 
+[] detalhar resultado
+
+
+APOSTAS
+=======
+[] configuração da distribuicao dos potes
+[] configuração dos numeros da sorte
+[] configuração da quantidade de jogos por concurso
+[] modalidade: estatistica, randomico, desdobramento
+
+nova aposta > selecionar a configuração > listar os cartões > selecionar o concurso > salvar >
+exbir aposta gerada > imprimir cartões 
+
+[] conferir aposta (robo, notificar o apostador)
+- gerar cobrança de 3% sobre o premio 
+- se noa tiver robo liberar para apostar novamente somente apos fazer a conferencia a pagamento da taxa
+[] Consultar apostas
 
 
 ESTATISTICAS
@@ -16,15 +37,18 @@ ESTATISTICAS
 - Organização dos potes
 
 
-APOSTAS
-=======
-[] configuração da distribuicao dos potes
-[] configuração dos numeros da sorte
-[] configuração da quantidade de jogos por concurso
-[] modalidade: estatistica, randomico, desdobramento
+CONTAS
+======
+# Ações de usuário
+[X] se cadastrar
+[X] fazer login
+[] consultar faturas
+[] gerar fatura com integração de meio de pagamento
 
-nova aposta > selecionar a configuração > listar os cartões > selecionar o concurso > salvar >
-exbir aposta gerada > imprimir cartões 
-
-[] conferir aposta
+# Ações plataforma
+[] Gerenciar usuarios
+[] Consultar faturas
+[] Liberar acesso temporário
+[] processar pagamentos 
+[] 
 

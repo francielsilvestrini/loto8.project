@@ -1,7 +1,44 @@
 {% extends 'base.html' %}
 
+{% block head_style %}
+<style>
+.zSMazd.UHlKbe {
+    margin: 0 8px 0 0;
+    letter-spacing: 2px;
+    padding: 0 0 0 2px;
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    line-height: 44px;
+}
+.wdqZ2d {
+    border: 1px solid rgba(0,0,0,.16);
+}
+.zSMazd {
+    border-radius: 50%;
+}
+
+.zSMazd, .hANsGc {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: arial,sans-serif-light,sans-serif;
+    font-weight: 300;
+    color: rgba(0,0,0,.87);
+}
+</style>
+
+{% endblock %}
+
 {% block content %}
     <h1>resultados</h1>
+    <div class="content">
+        <div class="MDTDab"><span class="zSMazd wdqZ2d UHlKbe" style="color:#9c27b0;background-color:#fff">01</span><span class="zSMazd wdqZ2d UHlKbe" style="color:#9c27b0;background-color:#fff">02</span><span class="zSMazd wdqZ2d UHlKbe" style="color:#9c27b0;background-color:#fff">03</span><span class="zSMazd wdqZ2d UHlKbe" style="color:#9c27b0;background-color:#fff">05</span><span class="zSMazd wdqZ2d UHlKbe" style="color:#9c27b0;background-color:#fff">07</span></div>
+
+    </div>
+
     <ul>
         {% for resultado in resultados %}
         <li>{{ resultado.concurso }} | {{ resultado.bolas }}</li>
