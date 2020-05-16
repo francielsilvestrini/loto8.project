@@ -1,6 +1,7 @@
 import logging
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Resultado
 from .forms import UploadFileForm
@@ -47,5 +48,18 @@ def importar_resultados(request):
 
 
 def listar_resultados(request):
-    resultados = Resultado.objects.all().order_by('-concurso')
+    try:
+        q = int(request.GET.get('q'))
+    except:
+        q = None
+    if q:
+        resultados = Resultado.objects.filter(concurso=q)
+    else:
+        resultados = Resultado.objects.all().order_by('-concurso')
+
+    paginator = Paginator(resultados, 12)
+    page = request.GET.get('page')
+
+    resultados = paginator.get_page(page)
+
     return render(request, 'resultados/listar_resultados.html', {'resultados': resultados})

@@ -5,8 +5,8 @@ RESULTADOS
 [x] Importar arquivo da loteria
 
 # apostadores
-[] consultar RESULTADOS (paginação)
-- localizar concurso 
+[x] consultar RESULTADOS (paginação)
+[x] localizar concurso 
 [] detalhar resultado
 
 

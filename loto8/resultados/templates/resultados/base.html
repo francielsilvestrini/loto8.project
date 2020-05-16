@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}Resultados · {% endblock %}
+
+{% block head_style %}
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    input.nav-link {
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+    }
+</style>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/feather.min.js' %}"></script>
+<script src="{% static 'js/Chart.min.js' %}"></script>
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}
+
+{% block navbar %}
+{% include 'resultados/navbar.html' %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% include 'resultados/sidebar.html' %}
+        
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">{% block toolbar_title%}TITULO{% endblock toolbar_title %}</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    {% block toolbar_buttons %}
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Último Concurso: 1234</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                    </div>
+                    {% endblock toolbar_buttons %}
+                </div>
+            </div>
+            
+
+
+        {% block main %}
+        {% endblock main %}
+        </main>
+    </div>
+</div>
+{% endblock content%}
